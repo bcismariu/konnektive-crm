@@ -111,7 +111,7 @@ class ImportOrderRequest extends Request
         'shipCountry' => "required_if:billShipSame,false|size:2",
         'paySource' => "required|in:CREDITCARD,CHECK,ACCTONFILE,PREPAID",
         'cardNumber' => 'required_if:paySource,CREDITCARD|numeric|digits:16|creditcard',
-        'cardMonth' => 'required_if:paySource,CREDITCARD|date_format:"m"',
+        'cardMonth' => 'required_if:paySource,CREDITCARD|numeric|digits:2|min:1|max:12',
         'cardYear' => 'required_if:paySource,CREDITCARD|date_format:"Y"',
         'cardSecurityCode' => "required_if:paySource,CREDITCARD|numeric|digits_between:3,4",
         /**
